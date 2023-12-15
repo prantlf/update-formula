@@ -98,7 +98,7 @@ fn update(file string, opts &Opts) ! {
 	for i, line in lines {
 		if m := re_home.exec(line, 0) {
 			repo = m.group_text(line, 1) or { panic('') }
-			println('repository: "${repo}"')
+			println('  repository: "${repo}"')
 		} else if m := re_ver.exec(line, 0) {
 			if repo.len == 0 {
 				return error('version spotted before homepage')
