@@ -1,1 +1,1 @@
-v -prod update-formula.v
+v -prod -o update-formula .

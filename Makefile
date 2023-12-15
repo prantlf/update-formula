@@ -18,7 +18,7 @@ check:
 	v vet .
 
 build:
-	v $(VFLAGS) update-formula.v
+	v $(VFLAGS) -o update-formula .
 
 test:
 	./test.sh
