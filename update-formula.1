@@ -1,0 +1,52 @@
+.TH update-formula "1" "December 15, 2023" "" "update-formula manual"
+
+.SH NAME
+update-formula - updates assets referred to in Homebrew formula files
+
+.SH SYNOPSIS
+.B update-formula
+[-d|--dry-run] [-V|--version] [-h|--help]
+[
+.I file ...
+]
+.RE
+
+.SH DESCRIPTION
+Updates version numbers and SHA-256 hashes in Homebrew formula files for GitHub
+releases. Helps updating a tap after publishing a new release on GitHub with new
+binary assets to install using Homebrew.
+
+.SH ARGUMENTS
+.B
+.IP "file"
+formula file to update
+
+.SH OPTIONS
+.B
+.IP "-d|--dry-run"
+only print what would be done without doing it
+.B
+.IP "-V, --version"
+print the version of the executable and exit
+.B
+.IP "-h, --help"
+print the usage information and exit
+
+.RE
+If no input file is specified, it will be read from standard input.
+If multiple files are specified and file overwriting is not enabled,
+the files will be only checked and their names printed out.
+
+.SH EXAMPLES
+.B
+.IP "update-formula yaml2json.rb"
+Update a formula to the latest version released on GitHub.
+
+.SH BUGS
+update-formula's bug tracker is located at <https://github.com/prantlf/v-update-formula/issues>
+
+.SH DOCUMENTATION
+See the website for documentation <https://github.com/prantlf/v-update-formula#readme>
+
+.SH AUTHOR
+Currently maintained by Ferdinand Prantl <prantlf@gmail.com>

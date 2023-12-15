@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/update-tap": true,
+    "**/update-tap.exe": true,
+    "**/update-tap.dSYM": true
+  }
+}
