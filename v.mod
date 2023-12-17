@@ -3,5 +3,7 @@ Module {
 	description: 'Updates version numbers and SHA-256 hashes in Homebrew formula files for GitHub releases.'
 	version: '0.1.2'
 	license: 'MIT'
-	dependencies: ['prantlf.cli', 'prantlf.debug', 'prantlf.pcre']
+	dependencies: [
+		'prantlf.cli', 'prantlf.debug', 'prantlf.github', 'prantlf.pcre'
+	]
 }

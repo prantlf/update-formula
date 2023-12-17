@@ -1,8 +1,8 @@
 import crypto.sha256 { hexhash }
-import net.http { Request }
-import os { create, getenv_opt, read_lines }
+import os { create, read_lines }
 import prantlf.cli { Cli, Env, run }
 import prantlf.debug { new_debug }
+import prantlf.github { download_asset, get_gh_token, get_latest_release }
 import prantlf.pcre { pcre_compile }
 
 const d = new_debug('updtap')
@@ -36,53 +36,20 @@ const re_url = pcre_compile('url "https://github.com/.+/releases/download/v([^/]
 const re_hash = pcre_compile('sha256 "(.+)"', 0) or { panic('re_hash') }
 const re_tag = pcre_compile('"tag_name"\\s*:\\s*"v([.0-9]+)"', 0) or { panic('re_tag') }
 
-fn get_gh_token(def_token string) !string {
-	return getenv_opt('GITHUB_TOKEN') or {
-		getenv_opt('GH_TOKEN') or {
-			return if def_token.len > 0 {
-				def_token
-			} else {
-				error('github token provided by neither GITHUB_TOKEN nor GH_TOKEN')
-			}
-		}
-	}
-}
-
 fn get_latest(repo string, token string) !string {
-	url := 'https://api.github.com/repos/${repo}/releases/latest'
-	d.log('getting "%s"', url)
-	mut req := Request{
-		method: .get
-		url: url
+	body := get_latest_release(repo, token)!
+	if body.len == 0 {
+		return error('no release found in ${repo}')
 	}
-	req.add_header(.accept, 'application/vnd.github+json')
-	req.add_header(.authorization, 'Bearer ${token}')
-	req.add_custom_header('X-GitHub-Api-Version', '2022-11-28')!
-	res := req.do()!
-	d.log('received "%s"', res.body)
-	if res.status_code == 200 {
-		if m := re_tag.exec(res.body, 0) {
-			return m.group_text(res.body, 1) or { panic('') }
-		}
-		return error('no tag found in ${repo}/releases/latest')
+	if m := re_tag.exec(body, 0) {
+		return m.group_text(body, 1) or { panic('') }
 	}
-	return error('GET ${repo}/latest failed with ${res.status_code}: ${res.status_msg}')
+	return error('no tag found in ${repo}/releases/latest')
 }
 
 fn get_hash(url string, token string) !string {
-	d.log('getting "%s"', url)
-	mut req := Request{
-		method: .get
-		url: url
-	}
-	req.add_header(.authorization, 'Bearer ${token}')
-	req.add_custom_header('X-GitHub-Api-Version', '2022-11-28')!
-	res := req.do()!
-	d.log('received "%d" bytes', res.body.len)
-	if res.status_code == 200 {
-		return hexhash(res.body)
-	}
-	return error('GET ${url} failed with ${res.status_code}: ${res.status_msg}')
+	body := download_asset(url, token)!
+	return hexhash(body)
 }
 
 fn update(file string, opts &Opts) ! {
@@ -157,7 +124,9 @@ fn body(mut opts Opts, args []string) ! {
 		return error('missing file')
 	}
 
-	opts.gh_token = get_gh_token(opts.gh_token)!
+	if opts.gh_token.len == 0 {
+		opts.gh_token = get_gh_token()!
+	}
 
 	for arg in args {
 		update(arg, opts)!
