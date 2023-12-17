@@ -1,5 +1,11 @@
 # Changes
 
+## [0.1.4](https://github.com/prantlf/update-formula/compare/v0.1.3...v0.1.4) (2023-12-17)
+
+### Bug Fixes
+
+* Close file before logging to get correct timing ([e8b1344](https://github.com/prantlf/update-formula/commit/e8b13446e321328554d6f0859966a1525e016943))
+
 ## [0.1.3](https://github.com/prantlf/update-formula/compare/v0.1.2...v0.1.3) (2023-12-17)
 
 ### Bug Fixes
