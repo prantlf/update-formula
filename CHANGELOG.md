@@ -1,5 +1,11 @@
 # Changes
 
+## [0.1.3](https://github.com/prantlf/update-formula/compare/v0.1.2...v0.1.3) (2023-12-17)
+
+### Bug Fixes
+
+* Reuse code from prantlf.github ([ef1d1eb](https://github.com/prantlf/update-formula/commit/ef1d1eb37d770db3cc998bed21ddb26cf54286b6))
+
 ## [0.1.2](https://github.com/prantlf/update-formula/compare/v0.1.1...v0.1.2) (2023-12-15)
 
 ### Bug Fixes
