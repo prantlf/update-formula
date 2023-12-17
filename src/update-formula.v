@@ -116,6 +116,7 @@ fn update(file string, opts &Opts) ! {
 	for line in lines {
 		out.writeln(line)!
 	}
+	out.close()
 	d.log_str('file written')
 }
 
