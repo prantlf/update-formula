@@ -2,8 +2,6 @@
 
 Updates version numbers and SHA-256 hashes in [Homebrew formula files] for GitHub releases. Helps updating a tap after publishing a new release on GitHub with new binary assets to install using Homebrew.
 
-Uses [prantlf.json].
-
 ## Synopsis
 
 An example of a formula:
@@ -27,7 +25,7 @@ class Yaml2json < Formula
  ...
 ```
 
-Update version numbers and SHA256 hashes to the latest available version:
+Update version numbers and SHA-256 hashes to the latest available version:
 
     update-formula yaml2json.rb
 
@@ -41,5 +39,15 @@ Update version numbers and SHA256 hashes to the latest available version:
       -d|--dry-run  only print what would be done without doing it
       -V|--version  print the version of the executable and exit
       -h|--help     print the usage information and exit
+
+## Contributing
+
+In lieu of a formal styleguide, take care to maintain the existing coding style. Lint and test your code.
+
+## License
+
+Copyright (c) 2023-2024 Ferdinand Prantl
+
+Licensed under the MIT license.
 
 [Homebrew formula files]: https://docs.brew.sh/Formula-Cookbook
