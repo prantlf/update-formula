@@ -1,5 +1,11 @@
 # Changes
 
+## [0.1.5](https://github.com/prantlf/update-formula/compare/v0.1.4...v0.1.5) (2024-03-31)
+
+### Bug Fixes
+
+* Support pre-release versions ([fb93afb](https://github.com/prantlf/update-formula/commit/fb93afbf6b582c41bb5e40877c70d8280d43b331))
+
 ## [0.1.4](https://github.com/prantlf/update-formula/compare/v0.1.3...v0.1.4) (2023-12-17)
 
 ### Bug Fixes
