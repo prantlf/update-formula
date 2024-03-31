@@ -30,11 +30,13 @@ mut:
 }
 
 const re_home = pcre_compile('homepage "https://github.com/(.+)"', 0) or { panic('re_homepage') }
-const re_ver = pcre_compile('version "([.0-9]+)"', 0) or { panic('re_version') }
+const re_ver = pcre_compile(r'version "((?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[.0-9A-Za-z-]+)?)"',
+	0) or { panic('re_version') }
 const re_url = pcre_compile('url "https://github.com/.+/releases/download/v([^/]+)/(.+)"',
 	0) or { panic('re_url') }
 const re_hash = pcre_compile('sha256 "(.+)"', 0) or { panic('re_hash') }
-const re_tag = pcre_compile('"tag_name"\\s*:\\s*"v([.0-9]+)"', 0) or { panic('re_tag') }
+const re_tag = pcre_compile(r'"tag_name"\s*:\s*"v((?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[.0-9A-Za-z-]+)?)"',
+	0) or { panic('re_tag') }
 
 fn get_latest(repo string, token string) !string {
 	body := get_latest_release(repo, token)!
