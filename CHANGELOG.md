@@ -1,5 +1,11 @@
 # Changes
 
+## [0.2.0](https://github.com/prantlf/update-formula/compare/v0.1.5...v0.2.0) (2024-04-28)
+
+### Features
+
+* Support #{version} in the asset URL ([097c309](https://github.com/prantlf/update-formula/commit/097c309470412cd64864e7d44e77277c5ed455e1))
+
 ## [0.1.5](https://github.com/prantlf/update-formula/compare/v0.1.4...v0.1.5) (2024-03-31)
 
 ### Bug Fixes
