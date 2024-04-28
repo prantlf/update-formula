@@ -85,11 +85,14 @@ fn update(file string, opts &Opts) ! {
 			if new_ver.len == 0 {
 				return error('url spotted before version')
 			}
-			asset := m.group_text(line, 2) or { panic('') }
+			mut asset := m.group_text(line, 2) or { panic('') }
+			asset = asset.replace('#{version}', new_ver)
 			println('  asset: "${asset}"')
 			url = 'https://github.com/${repo}/releases/download/v${new_ver}/${asset}'
 			start, end := m.group_bounds(1) or { panic('') }
-			lines[i] = line[..start] + new_ver + line[end..]
+			if line[start..end] != '#{version}' {
+				lines[i] = line[..start] + new_ver + line[end..]
+			}
 			continue
 		} else if m := re_hash.exec(line, 0) {
 			if url.len == 0 {

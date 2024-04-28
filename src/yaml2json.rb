@@ -15,10 +15,10 @@ class Yaml2json < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/prantlf/yaml2json/releases/download/v0.2.0/yaml2json-linux-x64.zip"
+      url "https://github.com/prantlf/yaml2json/releases/download/v#{version}/yaml2json-linux-x64.zip"
       sha256 "7cce77866abdc8a91e6e8f76f768a97dc8b12b3b7c692c44eef351aa5f7b39a9"
     elsif Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/prantlf/yaml2json/releases/download/v0.2.0/yaml2json-linux-arm64.zip"
+      url "https://github.com/prantlf/yaml2json/releases/download/v#{version}/yaml2json-linux-arm64.zip"
       sha256 "487b517076b3e4ed8bca260093c190f870b3defd0c0dffa85718b4f10bbdfc71"
     end
   end
