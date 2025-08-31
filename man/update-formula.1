@@ -5,7 +5,7 @@ update-formula - updates assets referred to in Homebrew formula files
 
 .SH SYNOPSIS
 .B update-formula
-[-d|--dry-run] [-V|--version] [-h|--help]
+[-t|--gh-token <token>] [-d|--dry-run] [-V|--version] [-h|--help]
 .I file ...
 .RE
 
@@ -20,6 +20,9 @@ binary assets to install using Homebrew.
 formula file to update
 
 .SH OPTIONS
+.B
+.IP "-t|--gh-token <token>"
+GitHub token (defaults to GH_TOKEN or GITHUB_TOKEN)
 .B
 .IP "-d|--dry-run"
 only print what would be done without doing it

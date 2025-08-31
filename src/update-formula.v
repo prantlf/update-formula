@@ -16,9 +16,10 @@ Usage: update-formula [options] [<file> ...]
   <file>        formula file to update
 
 Options:
-  -d|--dry-run  only print what would be done without doing it
-  -V|--version  print the version of the executable and exit
-  -h|--help     print the usage information and exit
+  -t|--gh-token <token>  GitHub token (defaults to GH_TOKEN or GITHUB_TOKEN)
+  -d|--dry-run           only print what would be done without doing it
+  -V|--version           print the version of the executable and exit
+  -h|--help              print the usage information and exit
 
 Examples:
   $ update-formula yaml2json.rb'
@@ -141,8 +142,8 @@ fn body(mut opts Opts, args []string) ! {
 
 fn main() {
 	run(Cli{
-		usage: usage
+		usage:   usage
 		version: version
-		env: Env.both
+		env:     Env.both
 	}, body)
 }
