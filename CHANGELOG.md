@@ -1,5 +1,15 @@
 # Changes
 
+## [0.3.0](https://github.com/prantlf/update-formula/compare/v0.2.0...v0.3.0) (2025-08-31)
+
+### Features
+
+* Add support for RISC-V ([45ef63c](https://github.com/prantlf/update-formula/commit/45ef63c10088169e5abaeeac672eba0adeb6edfa))
+
+### Bug Fixes
+
+* Document the --gh-token option ([caa8ccc](https://github.com/prantlf/update-formula/commit/caa8ccc4685d5604cc7a51d7f4e9fb444851b9dc))
+
 ## [0.2.0](https://github.com/prantlf/update-formula/compare/v0.1.5...v0.2.0) (2024-04-28)
 
 ### Features

@@ -7,7 +7,7 @@ import prantlf.pcre { pcre_compile }
 
 const d = new_debug('updtap')
 
-const version = '0.2.0'
+const version = '0.3.0'
 
 const usage = 'Updates version numbers and SHA-256 hashes in Homebrew formula files for GitHub releases.
 
