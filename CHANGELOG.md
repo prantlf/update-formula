@@ -1,5 +1,11 @@
 # Changes
 
+## [0.3.1](https://github.com/prantlf/update-formula/compare/v0.3.0...v0.3.1) (2025-08-31)
+
+### Bug Fixes
+
+* Parse URL from complex lines too ([a0942f8](https://github.com/prantlf/update-formula/commit/a0942f82854c0c04159b9b7e5e500eaef726659e))
+
 ## [0.3.0](https://github.com/prantlf/update-formula/compare/v0.2.0...v0.3.0) (2025-08-31)
 
 ### Features
